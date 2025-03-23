@@ -25,12 +25,11 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
 
-
-    # 新增上传步骤 👇
+    # 更新后的上传步骤 👇
     - name: Upload APK
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
-        name: app-apk
+        name: android-build
         path: |
-          **/build/outputs/apk/**/*.apk
-          **/build/outputs/bundle/**/*.aab
+          app/build/outputs/apk/**/*.apk
+          app/build/outputs/bundle/**/*.aab
