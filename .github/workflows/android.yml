@@ -24,12 +24,13 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
-    # 新增上传步骤
-    - name: Upload APK/AAB artifacts
+
+
+    # 新增上传步骤 👇
+    - name: Upload APK
       uses: actions/upload-artifact@v3
       with:
-        name: android-build-outputs
+        name: app-apk
         path: |
-          app/build/outputs/apk/**/*.apk
-          app/build/outputs/bundle/**/*.aab
-        retention-days: 1
+          **/build/outputs/apk/**/*.apk
+          **/build/outputs/bundle/**/*.aab
